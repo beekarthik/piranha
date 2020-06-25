@@ -170,6 +170,40 @@ class SwiftExamples {
         if x && y {
             print("test 12")
         }
+        
+        if x {
+            print("test 13")
+        }
+
+        if x, y {
+            print("test 14")
+        } else {
+            print("test 14.5")
+        }
+        
+        if x, y {
+            print("test 16")
+        }
+        
+        if x {
+            print("test 17")
+        }
+        
+        if x, y {
+            print("test 18")
+        }
+        
+        if x {
+            print("test 19")
+        }
+        
+        if x, (y) {
+            print("test 20")
+        }
+        
+        if x {
+            print("test 21")
+        }
 
         y = true
         y = x

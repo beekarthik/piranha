@@ -621,14 +621,26 @@ class XPFlagCleaner: SyntaxRewriter {
         }
 
         var result = SyntaxFactory.makeBlankConditionElementList()
-
+        var prevExpr = SyntaxFactory.makeBlankConditionElement()
+        var prevVal = Value.isTrue
+        
         for expr in node {
             let value = evaluate(expression: expr.condition)
-            if value != Value.isTrue {
-                result = result.appending(expr)
+            if prevVal != Value.isTrue {
+                if value == Value.isTrue && expr.indexInParent == node.count-1 {
+                    prevExpr = SyntaxFactory.makeBlankConditionElement().withCondition(prevExpr.condition).withTrailingTrivia((prevExpr.trailingTrivia)!)
+                }
+                result = result.appending(prevExpr)
             }
+            
+            prevExpr = expr
+            prevVal = evaluate(expression: prevExpr.condition)
         }
-
+        
+        if prevVal != Value.isTrue {
+            result = result.appending(prevExpr)
+        }
+        
         return super.visit(result)
     }
 

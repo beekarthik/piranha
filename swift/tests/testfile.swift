@@ -192,6 +192,45 @@ class SwiftExamples {
         if cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) && x && y {
             print("test 12")
         }
+        
+        if x, cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) {
+            print("test 13")
+        }
+
+        if x, y, cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) {
+            print("test 14")
+        } else {
+            print("test 14.5")
+        }
+        
+        if x, y, !cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) {
+            print("test 15")
+        }
+        
+        if x, y && cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) {
+            print("test 16")
+        }
+        
+        if x, cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) || y {
+            print("test 17")
+        }
+        
+        if x, y && cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) {
+            print("test 18")
+        }
+        
+        if x, y || cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) {
+            print("test 19")
+        }
+        
+        if x, (y && cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment)) {
+            print("test 20")
+        }
+        
+        if x, (cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) || y) {
+            print("test 21")
+        }
+    
 
         y = cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment)
         y = cachedExperiments.isTreated(forExperiment: ExperimentNamesSwift.test_experiment) && x

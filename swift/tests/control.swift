@@ -135,6 +135,23 @@ class SwiftExamples {
         if x || y {
             print("test 11")
         }
+        print("test 14.5")
+        
+        if x, y {
+            print("test 15")
+        }
+        
+        if x, y {
+            print("test 17")
+        }
+        
+        if x, y {
+            print("test 19")
+        }
+        
+        if x, (y) {
+            print("test 21")
+        }
 
         y = false
         y = false
